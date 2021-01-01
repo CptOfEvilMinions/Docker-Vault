@@ -3,11 +3,16 @@
 
 ## Step 0: Generate OpenSSL certificate
 This project contains with a self-signed OpenSSL ceretificate which should ONLY BE used for testing. Below are instructions to make your own
-1. `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout conf/tls/<name>.key -out conf/tls/<name>.crt`
+1. `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout conf/tls/vault.key -out conf/tls/vault.crt`
 
-## Step 1: Spin up stack
+## Step 1: Spin up Docker stack
+### Docker-compose v2.X
 1. `docker-compose build`
 1. `docker-compose up -d`
+
+### Docker-compose v3.X
+1. `docker stack deploy -c docker-compose-stack.yml vault`
+1. `docker service logs -f vault_vault`
 
 ## Step 2: Init Vault
 1. Open a browser to `https://<Docker IP addr>:8443`
@@ -41,6 +46,9 @@ This project contains with a self-signed OpenSSL ceretificate which should ONLY 
 * [docker-consul/0.X/Dockerfile](https://github.com/hashicorp/docker-consul/blob/master/0.X/Dockerfile)
 * [consul-demo-tracing/datadog/consul_config/config.hcl](https://github.com/hashicorp/consul-demo-tracing/blob/master/datadog/consul_config/config.hcl)
 * [Vault Configuration](https://www.vaultproject.io/docs/configuration)
+* [Docker + Consul + Vault:A Practical Guide](https://www.marcolancini.it/2017/blog-vault/)
+* [Compose file version 3 reference](https://docs.docker.com/compose/compose-file/compose-file-v3/#configs)
+* [Consul - Configuration](https://www.consul.io/docs/agent/options.html)
 * []()
 * []()
 * []()
