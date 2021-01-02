@@ -1,5 +1,6 @@
-# vault Docker
+# Docker Vault
 
+This repo is NO LONGER maintained. Please go here for the latest Docker Vault setup: https://github.com/CptOfEvilMinions/Vault-Automation
 
 ## Step 0: Generate OpenSSL certificate
 This project contains with a self-signed OpenSSL ceretificate which should ONLY BE used for testing. Below are instructions to make your own
